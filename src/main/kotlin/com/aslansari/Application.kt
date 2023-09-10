@@ -1,14 +1,13 @@
 package com.aslansari
 
-import com.aslansari.plugins.*
+import com.aslansari.plugins.configureHTTP
+import com.aslansari.plugins.configureRouting
+import com.aslansari.plugins.configureSecurity
+import com.aslansari.plugins.configureSerialization
 import io.ktor.server.application.*
-import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 
-fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
-        .start(wait = true)
-}
+fun main(args: Array<String>): Unit = EngineMain.main(args)
 
 fun Application.module() {
     configureSerialization()
