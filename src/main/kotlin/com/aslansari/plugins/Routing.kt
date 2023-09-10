@@ -1,5 +1,6 @@
 package com.aslansari.plugins
 
+import com.aslansari.customer.route.customerRouting
 import io.ktor.server.application.*
 import io.ktor.server.http.content.*
 import io.ktor.server.response.*
@@ -14,5 +15,8 @@ fun Application.configureRouting() {
         static("/static") {
             resources("static")
         }
+    }
+    routing {
+        customerRouting()
     }
 }

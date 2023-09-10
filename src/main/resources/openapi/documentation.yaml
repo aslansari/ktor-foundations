@@ -19,5 +19,37 @@ paths:
               examples:
                 Example#1:
                   value: "Hello World!"
+
+  /customer:
+    get:
+      description: "Get All customers"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                $ref: '#/components/schemas/Customer'
 components:
   schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 530b93b7-c676-4fe9-a6d4-13ac1b1cacd5
+        name:
+          type: string
+          example: Arthur
+        lastName:
+          type: string
+          example: Dent
+        email:
+          type: string
+          example: test@example.com
+      required:
+        - id
+        - name
+        - lastName
+        - email
