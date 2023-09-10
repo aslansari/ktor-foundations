@@ -23,6 +23,20 @@ repositories {
     mavenCentral()
 }
 
+ktor {
+    docker {
+        localImageName.set("sample-docker-image")
+        imageTag.set("0.0.1-preview")
+        portMappings.set(listOf(
+            io.ktor.plugin.features.DockerPortMapping(
+                80,
+                8080,
+                io.ktor.plugin.features.DockerPortMappingProtocol.TCP
+            )
+        ))
+    }
+}
+
 dependencies {
     implementation("io.ktor:ktor-server-content-negotiation-jvm")
     implementation("io.ktor:ktor-server-core-jvm")
